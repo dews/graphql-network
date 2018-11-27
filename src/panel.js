@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 let alreadyShown = false;
 
 function createPanel() {
-  chrome.devtools.panels.create('GraphQL',
+  chrome.devtools.panels.create('GraphQL Network',
     './icons/icon48.png',
     './panel.html',
     (panel) => {
