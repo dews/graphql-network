@@ -11,6 +11,7 @@ export default class DevToolsPanel extends React.Component {
   static propTypes = {
     requestFinished: React.PropTypes.object.isRequired,
     getHAR: React.PropTypes.func.isRequired,
+    theme: React.PropTypes.string
   };
 
   constructor(props) {
@@ -51,9 +52,10 @@ export default class DevToolsPanel extends React.Component {
   }
 
   render() {
+    const { theme = 'default' } = this.props;
     const { data, entryOpen } = this.state;
     return (
-      <div className="devToolsWrapper">
+      <div className={`devToolsWrapper theme-${theme}`}>
         <div className={`entryWrapper ${entryOpen && 'shortEntryWrapper'}`}>
         <div>
           <div className="operation header">

@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 let alreadyShown = false;
 
 function createPanel() {
+  const theme = chrome.devtools.panels.themeName || 'default';
   chrome.devtools.panels.create('GraphQL Network',
     './icons/icon48.png',
     './panel.html',
@@ -16,6 +17,7 @@ function createPanel() {
             <DevToolsPanel
               requestFinished={chrome.devtools.network.onRequestFinished}
               getHAR={chrome.devtools.network.getHAR}
+              theme={theme}
             />,
             panelWindow.document.getElementById('results'),
           );
